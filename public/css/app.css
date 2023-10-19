@@ -1,0 +1,323 @@
+/******************************
+Flexbox Layout
+*******************************/
+
+.header, .nav {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+  }
+  
+  .header {
+    justify-content: space-between;
+  }
+  
+  .nav {
+    -webkit-flex: 1;
+    flex: 1;
+    -webkit-justify-content: space-around;
+    justify-content: space-around;
+  }
+  
+  @media all and (min-width: 640px) {
+    .header, .nav {
+      -webkit-flex-direction: row;
+      flex-direction: row;
+    }
+  }
+  
+  @media all and (min-width: 1030px) {
+    .nav {
+      -webkit-flex: none;
+      flex: none;
+    }
+  }
+  
+  
+  /******************************
+  Treehouse Styling
+  *******************************/
+  
+  body {
+    margin: 0;
+    font-family: Helvetica;
+    background: url('https://i.pinimg.com/originals/28/8e/53/288e5335e47a3e239a7a99cc5f4413db.jpg') top center no-repeat;
+    background-size: cover;
+  }
+  
+  .header {
+    padding: 20px 0;
+    margin: 0 auto;
+  }
+  
+  .logo {
+    background: transparent url('https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Naruto_logo.svg/2560px-Naruto_logo.svg.png') center center no-repeat;
+    width: 195px;
+    background-size: contain;
+    text-indent: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+  
+  .nav {
+    list-style: none;
+  }
+  
+  .nav li {
+    margin: 12px 0 12px 28px;
+  }
+  
+  .nav li a {
+    text-decoration: none;
+    color: #000000;
+    font-size: 12px;
+    text-transform: uppercase;
+  }
+  
+  .nav li a:hover {
+    color: rgba(66, 66, 66, 0.7);
+  }
+  
+  .nav li:last-child a {
+    background: rgba(231, 191, 57, 0.3);
+    border-radius: 2px;
+    transition: 200ms ease-in-out;
+    padding: 8px 16px 7px;
+  }
+  
+  .nav li:active a:hover {
+    background: rgba(0, 0, 0, 0.5);
+    color: #000000;
+  }
+  
+  @media all and (min-width: 1030px) {
+    .header {
+      width: 1030px;
+      min-width: 768px;
+    }
+  }
+
+  /* Characters */
+
+  :root {
+
+    --card-height: 400px;
+    --card-width: calc(var(--card-height) / 1.5);
+  }
+  * {
+    box-sizing: border-box;
+  }
+  
+ .holder {
+    position: absolute;
+    top: 250px;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .card {
+    position: relative;
+    top: -100px;
+  width: var(--card-width);
+  height: var(--card-height);
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding: 0 36px;
+  perspective: 2500px;
+  margin: 0 50px;
+}
+
+.cover-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.wrapper {
+  transition: all 0.5s;
+  position: absolute;
+  width: 100%;
+  z-index: -1;
+}
+
+.card:hover .wrapper {
+  transform: perspective(900px) translateY(-5%) rotateX(25deg) translateZ(0);
+  box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75);
+}
+
+.wrapper::before,
+.wrapper::after {
+  content: "";
+  opacity: 0;
+  width: 100%;
+  height: 80px;
+  transition: all 0.5s;
+  position: absolute;
+  left: 0;
+}
+.wrapper::before {
+  top: 0;
+  height: 100%;
+  background-image: linear-gradient(
+    to top,
+    transparent 46%,
+    rgba(12, 13, 19, 0.5) 68%,
+    rgba(12, 13, 19) 97%
+  );
+}
+.wrapper::after {
+  bottom: 0;
+  opacity: 1;
+  background-image: linear-gradient(
+    to bottom,
+    transparent 46%,
+    rgba(12, 13, 19, 0.5) 68%,
+    rgba(12, 13, 19) 97%
+  );
+}
+
+.card:hover .wrapper::before,
+.wrapper::after {
+  opacity: 1;
+}
+
+.card:hover .wrapper::after {
+  height: 120px;
+}
+.title {
+  width: 100%;
+  transition: transform 0.5s;
+  padding-bottom: 5px;
+  padding-right: 5px;
+}
+.card:hover .title {
+  transform: translate3d(0%, -50px, 100px);
+}
+
+.character {
+  width: 100%;
+  opacity: 0;
+  transition: all 0.5s;
+  position: absolute;
+  z-index: -1;
+}
+
+.card:hover .character {
+  opacity: 1;
+  transform: translate3d(0%, -20%, 100px);
+}
+
+/*Header Title*/
+
+@import url('https://fonts.googleapis.com/css2?family=Geologica:wght@600&display=swap');
+
+#container {
+  color:#ffffff;
+  text-transform: uppercase;
+  font-family: 'Geologica', sans-serif;
+  text-align:center;
+  font-size:56px;
+  font-weight:bold;
+  padding-top:10px;  
+  position: relative;
+  top: 20px;
+  width:100%;
+  display:block;
+  font-weight: bold;
+  height: 150px;
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: black;
+}
+
+#flip {
+  height:80px;
+  overflow:hidden;
+}
+
+#flip > div > div {
+  color:#fff;
+  padding:4px 2px;
+  height:75px;
+  margin-top:15px;
+  margin-bottom:25px;
+  display:inline-block;
+}
+
+#flip div:first-child {
+  animation: show 5s linear infinite;
+}
+
+#flip div div {
+  background:#e4ce55;
+}
+#flip div:first-child div {
+    height:65px;
+  background:#7f5eda;
+}
+#flip div:last-child div {
+    height:65px;
+  background:#3b9fa7;
+}
+
+@keyframes show {
+  0% {margin-top:-270px;}
+  5% {margin-top:-180px;}
+  33% {margin-top:-180px;}
+  38% {margin-top:-90px;}
+  66% {margin-top:-90px;}
+  71% {margin-top:0px;}
+  99.99% {margin-top:0px;}
+  100% {margin-top:-270px;}
+}
+
+p {
+  position:fixed;
+  width:100%;
+  bottom:20px;
+  font-size:12px;
+  color:#999;
+  margin-top:100px;
+}
+
+/*About*/
+.content{
+  max-width: 100%;
+  margin-right: 100px;
+  margin-left: 100px;
+}
+
+.content-box{
+  background-color: azure;
+  opacity: 0.8;
+  max-width: 100%;
+  margin-right: 100px;
+  margin-left: 100px;
+}
+
+h1{
+  text-align: center;
+}
+
+.info{
+  text-align: center;
+  max-width: 100%;
+  margin-right: 100px;
+  margin-left: 100px;
+}
+
+.info-box{
+  background-color: azure;
+  opacity: 0.8;
+  max-width: 100%;
+  margin-right: 100px;
+  margin-left: 100px;
+}
